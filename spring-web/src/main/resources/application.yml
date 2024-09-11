@@ -1,0 +1,61 @@
+hello:
+  runtime: live
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+my:
+  app:
+    props:
+      contact-phones:
+        - 2371463
+        - 2371463224
+        - 2371465
+        - 2371466
+      locations:
+        - city: istanbul
+          district: ataşehir
+          street: atatürk
+        - city: ankara
+          district: mamak
+          street: talas
+      multiplier: 0.5
+      name: test-spring
+      specific-locations:
+        ankara-lokasyon-main:
+          city: ankara
+          district: yukari
+          street: ayran
+        ankara-lokasyon1:
+          city: ankara
+          district: mamak
+          street: talas
+        istanbul-lokasyon-main:
+          city: istanbul
+          district: ataşehir
+          street: atatürk
+      sub-properties:
+        another-version: 1.2.0
+        inner-name: inner isim
+        success-ratio: 20.3
+        test-case-number: 5
+      test: 1
+      version: 1.0.1
+server:
+  port: 8080
+  shutdown: graceful
+  tomcat:
+    accept-count: 200
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+spring:
+  application:
+    name: spring-web
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  profiles:
+    active: live
+    default: live

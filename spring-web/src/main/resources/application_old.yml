@@ -1,0 +1,37 @@
+hello:
+  runtime: live
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+my:
+  app:
+    props:
+      multiplier: 0.5
+      name: test-spring
+      test: 1
+      version: 1.0.1
+      contact-phones:
+        - 738465365
+        - 34853495
+        - 349875345
+      sub-properties:
+        inner-name: osman training
+        another-version: 1.2.0
+        success-ratio: 20.3
+        test-case-number: 5
+
+server:
+  port: 8080
+  shutdown: graceful
+  tomcat:
+    accept-count: 200
+spring:
+  application:
+    name: spring-web
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  profiles:
+    active: live
+    default: live
