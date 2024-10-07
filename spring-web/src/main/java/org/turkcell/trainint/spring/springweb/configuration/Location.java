@@ -24,6 +24,5 @@ public class Location {
     @NotEmpty
     private String district;
 
-    @NotNull
     private Long customerId;
 }

@@ -8,14 +8,15 @@ import org.turkcell.trainint.spring.springweb.services.models.Customer;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.Future;
 
 
 public interface ICustomerRepository extends JpaRepository<Customer, Long> {
 
     Optional<Customer> findByCustomerUniqueId(String cuuid);
 
-    List<Customer> findBySurnameAndName(String surname,
-                                        String name);
+    Future<List<Customer>> findBySurnameAndName(String surname,
+                                                String name);
 
     List<Customer> findBySurnameAndNameOrderByUsername(String surname,
                                                        String name);

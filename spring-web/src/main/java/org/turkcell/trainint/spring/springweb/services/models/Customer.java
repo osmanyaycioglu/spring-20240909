@@ -25,6 +25,7 @@ public class Customer {
     private String   name;
     private String   surname;
     @NotBlank
+    @Column(unique = true)
     private String   username;
     @NotBlank
     private String   password;
