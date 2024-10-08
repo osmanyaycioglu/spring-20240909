@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class MyAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(MyAspect.class);

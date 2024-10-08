@@ -3,7 +3,7 @@ package org.turkcell.trainint.spring.springweb.event;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-@Component
+// @Component
 public class MyEventListener implements ApplicationListener<MyEvent> {
 
     @Override

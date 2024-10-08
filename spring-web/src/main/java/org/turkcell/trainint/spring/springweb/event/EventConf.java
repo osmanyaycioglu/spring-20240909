@@ -11,12 +11,12 @@ import org.springframework.core.task.SyncTaskExecutor;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-@Configuration
+// @Configuration
 public class EventConf {
 
     @Bean
     public Executor myThreadPool(){
-        return Executors.newFixedThreadPool(3);
+        return Executors.newFixedThreadPool(10);
     }
 
     @Bean(name = "applicationEventMulticaster")

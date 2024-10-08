@@ -3,6 +3,7 @@ package org.turkcell.trainint.spring.springweb.rest;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.turkcell.trainint.spring.springweb.aop.MethodLog;
 import org.turkcell.trainint.spring.springweb.async.MyAsyncService;
@@ -26,31 +27,36 @@ public class PlaygroundRestController {
         return "OK.";
     }
 
+
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
     @GetMapping("/test2")
     public String method2(@RequestParam String name,
                           @RequestParam String surname) {
         return "Hello 2 " + name + " " + surname;
     }
 
+    @PreAuthorize("hasAnyAuthority('SUPER_ADMIN')")
     @GetMapping("/test3/{name}/{surname}")
     public String method3(@PathVariable String name,
                           @PathVariable String surname) {
         return "Hello 3 " + name + " " + surname;
     }
 
+    @PreAuthorize("hasAnyAuthority('VIEWER')")
     @GetMapping("/input/{name}")
     public String input(@PathVariable String name) {
-        String sLoc = myAsyncService.syncMethod(name);
-        System.out.println("Before Async Called");
-        Future<String> stringFutureLoc = myAsyncService.asyncMethod(name);
-        System.out.println("Async Called");
-        try {
-            String sLoc1 = stringFutureLoc.get();
-            System.out.println("Got response : " + sLoc1);
-        } catch (Exception eParam) {
-        }
-
-        return "Hello 3 " + name + " " + inputService.increase();
+//        String sLoc = myAsyncService.syncMethod(name);
+//        System.out.println("Before Async Called");
+//        Future<String> stringFutureLoc = myAsyncService.asyncMethod(name);
+//        System.out.println("Async Called");
+//        try {
+//            String sLoc1 = stringFutureLoc.get();
+//            System.out.println("Got response : " + sLoc1);
+//        } catch (Exception eParam) {
+//        }
+//
+//        return "Hello 3 " + name + " " + inputService.increase();
+        return "Hello 3";
     }
 
 }
